@@ -1,5 +1,7 @@
 # go-ldap-client
 
+Forked for personal use, updated example to reflect that.
+
 Simple ldap client to authenticate, retrieve basic information and groups for a user.
 
 # Usage
@@ -14,7 +16,7 @@ package main
 import (
 	"log"
 
-	"github.com/jtblin/go-ldap-client"
+	"github.com/zedcode/go-ldap-client"
 )
 
 func main() {
