@@ -73,6 +73,20 @@ func (lc *LDAPClient) Close() {
 	}
 }
 
+// SimpleAuthenticate just takes a provided Username/Password
+// and tries to bind with them.
+func (lc *LDAPClient) SimpleAuthenticate(username, password string) (bool, error) {
+	err := lc.Connect()
+	if err != nil {
+		return false, err
+	}
+	err = lc.Conn.Bind(username, password)
+	if err != nil {
+		return false, err
+	}
+	return true, nil
+}
+
 // Authenticate authenticates the user against the ldap backend.
 func (lc *LDAPClient) Authenticate(username, password string) (bool, map[string]string, error) {
 	err := lc.Connect()
